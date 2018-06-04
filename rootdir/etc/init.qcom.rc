@@ -61,8 +61,6 @@ on post-fs-data
     mkdir /data/misc/camera 0770 camera camera
     setprop persist.camera.stats.test 5
 
-    setprop persist.camera.HAL3.enabled 1
-
     # Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
 
@@ -187,10 +185,10 @@ on boot
     mkdir /dev/socket/netmgr 0750 radio radio
 
     # KeyDisabler permissions
-    chown system system /sys/module/gf_spi/parameters/report_home_events
     chown system system /sys/devices/soc/soc:fingerprint_fpc/enable_key_events
-    chmod 0660 /sys/module/gf_spi/parameters/report_home_events
+    chown system system /sys/devices/soc/soc:fingerprint_goodix/enable_key_events
     chmod 0660 /sys/devices/soc/soc:fingerprint_fpc/enable_key_events
+    chmod 0660 /sys/devices/soc/soc:fingerprint_goodix/enable_key_events
 
     chown system system /proc/touchpanel/capacitive_keys_enable
     chown system system /proc/touchpanel/double_tap_enable
