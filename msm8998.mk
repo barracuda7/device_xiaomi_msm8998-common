@@ -79,14 +79,14 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.msm8998 \
     audio.r_submix.default \
-    audio.usb.default \
+    audio.usb.default
 
 PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libvolumelistener \
+    libvolumelistener
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
@@ -121,7 +121,8 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    Snap
+    Snap \
+    MiuiCamera
 
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
@@ -190,7 +191,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcurl \
     libgnss \
-    libgnsspps \
+    libgnsspps
 
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl-qti \
@@ -251,7 +252,11 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay native
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@1.0-service-sdm
+    vendor.lineage.livedisplay@1.0-service-sdm \
+    vendor.lineage.livedisplay-V1.0-java
+
+PRODUCT_BOOT_JARS += \
+    vendor.lineage.livedisplay-V1.0-java
 
 # Media
 PRODUCT_COPY_FILES += \
