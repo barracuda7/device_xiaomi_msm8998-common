@@ -63,6 +63,7 @@ persist.camera.xm.green.b=0.96
 persist.camera.xm.green.r=0.97
 persist.dualcam.lpm.enable=1
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.miui.cit,org.lineageos.snap
+setprop persist.camera.HAL3.enabled 1
 
 # FRP
 ro.frp.pst=/dev/block/platform/soc/1da4000.ufshc/by-name/frp
@@ -150,13 +151,10 @@ dalvik.vm.heapsize=512m
 dalvik.vm.heapstartsize=16m
 dalvik.vm.heaptargetutilization=0.75
 
-# NFC
-persist.nfc.smartcard.config=SIM1,eSE1
-ro.nfc.port=I2C
-ro.se.type=eSE,HCE,UICC
-
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
+ro.vendor.qti.core_ctl_max_cpu=4
+ro.vendor.qti.core_ctl_min_cpu=0
 ro.vendor.qti.sys.fw.bg_apps_limit=60
 sdm.debug.disable_skip_validate=1
 sdm.perf_hint_window=50

@@ -61,8 +61,6 @@ on post-fs-data
     mkdir /data/misc/camera 0770 camera camera
     setprop persist.camera.stats.test 5
 
-    setprop persist.camera.HAL3.enabled 1
-
     # Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
 
@@ -355,6 +353,11 @@ service charger /charger
     class charger
     group system graphics
     seclabel u:r:charger:s0
+
+service msm_irqbalance /vendor/bin/msm_irqbalance -f /vendor/etc/msm_irqbalance.conf
+    class core
+    user root
+    group root
 
 service time_daemon /vendor/bin/time_daemon
     class main
