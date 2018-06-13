@@ -79,14 +79,14 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.msm8998 \
     audio.r_submix.default \
-    audio.usb.default
+    audio.usb.default \
 
 PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libvolumelistener
+    libvolumelistener \
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
@@ -190,11 +190,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcurl \
     libgnss \
-    libgnsspps
+    libgnsspps \
 
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl-qti \
-    android.hardware.gnss@1.0-service-qti
+    android.hardware.gnss@1.0-service-qti \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
@@ -251,12 +251,7 @@ PRODUCT_PACKAGES += \
 
 # LiveDisplay native
 PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@1.0-service-sdm \
-    vendor.lineage.livedisplay@1.0-service-sdm \
-    vendor.lineage.livedisplay-V1.0-java
-
-PRODUCT_BOOT_JARS += \
-    vendor.lineage.livedisplay-V1.0-java
+    vendor.lineage.livedisplay@1.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
@@ -286,8 +281,10 @@ PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl \
     android.hardware.nfc@1.0-service
 
+# NFC
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/nfc/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf
+    $(LOCAL_PATH)/configs/nfc/libnfc-brcm.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-brcm.conf \
+    $(LOCAL_PATH)/configs/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
 
 # OMX
 PRODUCT_PACKAGES += \
