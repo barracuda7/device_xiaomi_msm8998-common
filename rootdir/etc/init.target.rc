@@ -89,6 +89,7 @@ on init
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 90
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack 10000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 1248000
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 1
     write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "83 1401600:95"
@@ -105,6 +106,7 @@ on init
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 19000
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/go_hispeed_load 90
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_slack 10000
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1267200
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 1
     write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "83 1420800:95"
@@ -134,6 +136,11 @@ on init
     write /sys/module/lpm_levels/system/pwr/pwr-l2-ret/idle_enabled N
     write /sys/module/lpm_levels/system/perf/perf-l2-dynret/idle_enabled N
     write /sys/module/lpm_levels/system/perf/perf-l2-ret/idle_enabled N
+
+    # Set the default IRQ affinity to the primary cluster. When a
+    # CPU is isolated/hotplugged, the IRQ affinity is adjusted
+    # to one of the CPU from the default IRQ affinity mask.
+    write /proc/irq/default_smp_affinity f
 
     # Create camera daemon cpusets
     mkdir /dev/cpuset/camera-daemon 0750 cameraserver cameraserver
