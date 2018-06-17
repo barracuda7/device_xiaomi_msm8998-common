@@ -144,7 +144,7 @@ ro.vendor.sensors.sta_detect=true
 persist.delta_time.enable=true
 
 # Vendor security patch level
-ro.lineage.build.vendor_security_patch=2018-03-01
+ro.vendor.build.security_patch=2018-03-01
 
 # WFD
 persist.debug.wfd.enable=1
