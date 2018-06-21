@@ -74,19 +74,23 @@ TARGET_SCREEN_WIDTH := 1080
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
 
+# Additional native libraries
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.primary.msm8998 \
     audio.r_submix.default \
-    audio.usb.default
+    audio.usb.default \
 
 PRODUCT_PACKAGES += \
     libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    libvolumelistener
+    libvolumelistener \
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
@@ -190,11 +194,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcurl \
     libgnss \
-    libgnsspps
+    libgnsspps \
 
 PRODUCT_PACKAGES += \
     android.hardware.gnss@1.0-impl-qti \
-    android.hardware.gnss@1.0-service-qti
+    android.hardware.gnss@1.0-service-qti \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
@@ -208,11 +212,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.health@1.0-impl \
     android.hardware.health@1.0-service
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -301,6 +300,9 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti
+
+# Properties
+include $(LOCAL_PATH)/vendor_prop.mk
 
 # QCOM
 PRODUCT_COPY_FILES += \
