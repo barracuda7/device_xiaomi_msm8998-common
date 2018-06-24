@@ -74,10 +74,6 @@ TARGET_SCREEN_WIDTH := 1080
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
 
-# Additional native libraries
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/public.libraries.txt:$(TARGET_COPY_OUT_VENDOR)/etc/public.libraries.txt
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -213,6 +209,11 @@ PRODUCT_PACKAGES += \
     android.hardware.health@1.0-impl \
     android.hardware.health@1.0-service
 
+# HIDL
+PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0
+
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common
@@ -300,9 +301,6 @@ PRODUCT_PACKAGES += \
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti
-
-# Properties
-include $(LOCAL_PATH)/vendor_prop.mk
 
 # QCOM
 PRODUCT_COPY_FILES += \
