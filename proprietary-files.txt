@@ -438,6 +438,7 @@ vendor/bin/pm-service
 vendor/lib64/libperipheral_client.so
 
 # QMI
+etc/permissions/qti_libpermissions.xml|ef3c88495f2f61a2d16e1445113a9d80f8db0e0a
 etc/permissions/qti_permissions.xml
 lib64/libqminvapi.so:vendor/lib64/libqminvapi.so
 vendor/bin/irsc_util
@@ -482,7 +483,6 @@ framework/qti-telephony-common.jar
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/ATFWD-daemon
 vendor/bin/netmgrd
-vendor/bin/port-bridge
 vendor/bin/qti
 vendor/bin/rmt_storage
 vendor/bin/tftp_server
