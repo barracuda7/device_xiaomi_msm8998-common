@@ -170,14 +170,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiDoze
 
-# XiaomiParts
-PRODUCT_PACKAGES += \
-    XiaomiParts
-
-# ConfigPanel
-PRODUCT_PACKAGES += \
-   ConfigPanel
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
@@ -384,7 +376,7 @@ PRODUCT_PACKAGES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.1-service.sagit
+    android.hardware.vibrator@1.0-service.lineage
 
 # VNDK
 PRODUCT_PACKAGES += \
