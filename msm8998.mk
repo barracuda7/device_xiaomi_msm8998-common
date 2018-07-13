@@ -174,6 +174,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiParts
 
+# ConfigPanel
+PRODUCT_PACKAGES += \
+   ConfigPanel
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
