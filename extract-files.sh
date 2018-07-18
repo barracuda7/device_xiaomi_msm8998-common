@@ -73,36 +73,16 @@ CAMERA2_SENSOR_MODULES="$COMMON_BLOB_ROOT"/vendor/lib/libmmcamera2_sensor_module
 sed -i "s|/system/etc/camera/|/vendor/etc/camera/|g" "$CAMERA2_SENSOR_MODULES"
 
 #
-# Use stock libskia.so by renaming it to libmisk.so
+# Replace libminikin with libcamshim to allow shimming
+# libminikin will still be loaded by libMiCameraHal
 #
-MI_SKIA="$COMMON_BLOB_ROOT"/vendor/lib/libmisk.so
-MI_CAMERA_HAL="$COMMON_BLOB_ROOT"/vendor/lib/libMiCameraHal.so
 CAMERA_MSM8998="$COMMON_BLOB_ROOT"/vendor/lib/hw/camera.msm8998.so
-
-shim_skia() {
-    sed -i "s|libskia.so|libmisk.so|g" "$1"
-}
-
-shim_skia "$MI_SKIA"
-shim_skia "$MI_CAMERA_HAL"
-shim_skia "$CAMERA_MSM8998"
-
-#
-# Use stock libminikin.so by renaming it to libmiuikin.so
-#
-MIUI_KIN="$COMMON_BLOB_ROOT"/vendor/lib/libmiuikin.so
-
-shim_minikin() {
-    sed -i "s|libminikin.so|libmiuikin.so|g" "$1"
-}
-
-shim_minikin "$MIUI_KIN"
-shim_minikin "$MI_CAMERA_HAL"
-shim_minikin "$CAMERA_MSM8998"
+sed -i "s|libminikin.so|libcamshim.so|g" "$CAMERA_MSM8998"
 
 #
 # Load camera watermark from vendor
 #
+MI_CAMERA_HAL="$COMMON_BLOB_ROOT"/vendor/lib/libMiCameraHal.so
 sed -i "s|system/etc/dualcamera.png|vendor/etc/dualcamera.png|g" "$MI_CAMERA_HAL"
 
 #
