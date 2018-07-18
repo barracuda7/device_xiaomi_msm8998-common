@@ -68,7 +68,6 @@ on init
     write /proc/sys/kernel/sched_freq_dec_notify 400000
     write /proc/sys/kernel/sched_spill_nr_run 5
     write /proc/sys/kernel/sched_restrict_cluster_spill 1
-    write /proc/sys/kernel/sched_prefer_sync_wakee_to_waker 1
 
     # Bring CPUs online
     write /sys/devices/system/cpu/cpu0/online 1
