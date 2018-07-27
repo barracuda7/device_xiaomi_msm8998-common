@@ -130,6 +130,10 @@ PRODUCT_PACKAGES += \
     Snap
 
 PRODUCT_PACKAGES += \
+    libcamshim.vendor \
+    libicuuc.vendor
+
+PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service
 
@@ -304,6 +308,7 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.recovery.qcom.rc \
     init.target.rc \
+    init.target.performance.rc \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
