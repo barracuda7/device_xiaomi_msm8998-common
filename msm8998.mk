@@ -361,7 +361,6 @@ PRODUCT_PACKAGES += \
    GmsCore \
    GsfProxy \
    FakeStore \
-   UnifiedNlp \
    UnifiedNlpApi \
    MicroGUiTools
 
