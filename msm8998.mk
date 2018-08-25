@@ -356,14 +356,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-service.lineage
 
-# OTHER PACKAGES
-PRODUCT_PACKAGES += \
-   GmsCore \
-   GsfProxy \
-   FakeStore \
-   UnifiedNlpApi \
-   MicroGUiTools
-
 # VNDK
 PRODUCT_PACKAGES += \
     vndk_package
