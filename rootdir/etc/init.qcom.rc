@@ -192,6 +192,10 @@ on boot
     # Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
+    # Vibrator
+    chmod 0644 /sys/class/timed_output/vibrator/pwm_value
+    chown system system /sys/class/timed_output/vibrator/pwm_value
+
     # KeyDisabler permissions
     chown system system /sys/devices/soc/soc:fingerprint_fpc/enable_key_events
     chown system system /sys/devices/soc/soc:fingerprint_goodix/enable_key_events
