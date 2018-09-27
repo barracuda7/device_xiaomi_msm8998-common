@@ -27,6 +27,7 @@
 
 import /vendor/etc/init/hw/init.qcom.usb.rc
 import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.target.performance.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -38,6 +39,13 @@ on init
 
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
+    chown system system /sys/class/timed_output/vibrator/vtg_level
+    chown system system /sys/sweep2sleep/sweep2sleep
+    chown system system /sys/sweep2sleep/vib_strength
+
+    chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
+    chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
+    write /sys/devices/virtual/graphics/fb0/idle_time 100
 
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
@@ -110,9 +118,9 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-    # Create PERFD deamon related dirs
-    mkdir /data/vendor/perfd 2770 root system
-    rm /data/vendor/perfd/default_values
+    # Create perfd related dirs
+    mkdir /data/system/perfd 0770 root system
+    chmod 2770 /data/system/perfd
 
     # NFC local data and nfcee xml storage
     mkdir /data/vendor/nfc 0770 nfc nfc
@@ -261,6 +269,16 @@ service start_hci_filter /vendor/bin/wcnss_filter
     disabled
     writepid /dev/cpuset/system-background/tasks
 
+service perfd /vendor/bin/perfd
+    class main
+    user root
+    group root readproc system
+    socket perfd seqpacket 0666 root system
+    disabled
+
+on property:sys.post_boot.parsed=1
+    start perfd
+
 service atfwd /vendor/bin/ATFWD-daemon
     class late_start
     user system
@@ -280,7 +298,7 @@ service ipacm /vendor/bin/ipacm
 service qti /vendor/bin/qti
     class main
     user radio
-    group radio net_raw diag usb net_admin
+    group radio oem_2901 diag usb net_admin
     writepid /dev/cpuset/system-background/tasks
 
 service sensors /vendor/bin/sensors.qcom
@@ -342,7 +360,7 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service charger /charger
+service charger /sbin/chargeonlymode
     class charger
     group system graphics
     seclabel u:r:charger:s0
