@@ -164,6 +164,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     XiaomiDoze
 
+# MicroG
+PRODUCT_PACKAGES += \
+    DroidGuard \
+    FakeStore \
+    FDroid \
+    GmsCore \
+    GsfProxy \
+    MozillaNlpBackend \
+    NominatimNlpBackend
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
