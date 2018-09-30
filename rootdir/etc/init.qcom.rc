@@ -40,9 +40,7 @@ on init
 on post-fs
     chmod 0755 /sys/kernel/debug/tracing
     chown system system /sys/class/timed_output/vibrator/vtg_level
-    chown system system /sys/sweep2sleep/sweep2sleep
-    chown system system /sys/sweep2sleep/vib_strength
-
+    
     chmod 0664 /sys/devices/virtual/graphics/fb0/idle_time
     chown system graphics /sys/devices/virtual/graphics/fb0/idle_time
     write /sys/devices/virtual/graphics/fb0/idle_time 100
@@ -118,9 +116,9 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-    # Create perfd related dirs
-    mkdir /data/system/perfd 0770 root system
-    chmod 2770 /data/system/perfd
+    # Create PERFD deamon related dirs
+    mkdir /data/vendor/perfd 2770 root system
+    rm /data/vendor/perfd/default_values
 
     # NFC local data and nfcee xml storage
     mkdir /data/vendor/nfc 0770 nfc nfc
@@ -364,7 +362,7 @@ service ril-daemon2 /vendor/bin/hw/rild -c 2
     group radio cache inet misc audio sdcard_r sdcard_rw diag oem_2901 log
     capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service charger /sbin/chargeonlymode
+service charger /charger
     class charger
     group system graphics
     seclabel u:r:charger:s0
