@@ -172,7 +172,9 @@ PRODUCT_PACKAGES += \
     GmsCore \
     GsfProxy \
     MozillaNlpBackend \
-    NominatimNlpBackend
+    NominatimNlpBackend \
+    WundergroundWeatherProvider \
+    OpenWeatherMapProvider
 
 # DRM
 PRODUCT_PACKAGES += \
