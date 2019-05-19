@@ -166,14 +166,6 @@ PRODUCT_PACKAGES += \
 
 # MicroG
 PRODUCT_PACKAGES += \
-    DroidGuard \
-    FakeStore \
-    FDroid \
-    GmsCore \
-    GsfProxy \
-    MozillaNlpBackend \
-    NominatimNlpBackend \
-    WundergroundWeatherProvider \
     OpenWeatherMapProvider
 
 # DRM
