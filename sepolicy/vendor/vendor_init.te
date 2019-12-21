@@ -5,5 +5,3 @@ allow vendor_init {
     thermal_data_file
     tombstone_data_file
 }:dir create_dir_perms;
-
-allow vendor_init media_rw_data_file:file { getattr relabelfrom };

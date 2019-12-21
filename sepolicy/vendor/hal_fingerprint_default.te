@@ -23,5 +23,3 @@ dontaudit hal_fingerprint_default sysfs_graphics:dir search;
 dontaudit hal_fingerprint_default sysfs_leds:dir search;
 
 set_prop(hal_fingerprint_default, vendor_fp_prop);
-
-allow hal_fingerprint_default sysfs_graphics:file { open read };
