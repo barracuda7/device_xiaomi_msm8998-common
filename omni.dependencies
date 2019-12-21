@@ -59,8 +59,8 @@
     "revision": "android-9.0"
   },
   {
-    "remote": "omnirom",
-    "repository": "android_kernel_xiaomi_msm8998",
+    "remote": "github",
+    "repository": "barracuda7/kernel_xiaomi_msm8998",
     "target_path": "kernel/xiaomi/msm8998",
     "revision": "android-9.0"
   }
