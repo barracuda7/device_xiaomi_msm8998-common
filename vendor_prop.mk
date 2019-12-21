@@ -81,7 +81,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.disable_partial_split=1 \
     vendor.display.disable_rotator_downscale=1 \
     vendor.display.disable_skip_validate=1 \
-    vendor.display.enable_default_color_mode=1 \
+    vendor.display.enable_default_color_mode=0 \
     vendor.display.perf_hint_window=50 \
     vendor.gralloc.enable_fb_ubwc=1
 
@@ -89,6 +89,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.dpm.feature=1 \
     persist.vendor.dpm.nsrm.bkg.evt=3955
+
+# Enforce privapp-permissions whitelist
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.control_privapp_permissions=enforce
 
 # FRP
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -124,8 +128,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.vendor.qti.core_ctl_max_cpu=4 \
-    ro.vendor.qti.core_ctl_min_cpu=0 \
     ro.vendor.qti.sys.fw.bg_apps_limit=60
 
 # Radio
